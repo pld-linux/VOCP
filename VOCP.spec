@@ -25,6 +25,7 @@ Release:	0.1
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://dl.sourceforge.net/vocp/%{name}-%{version}.tar.bz2
+# Source0-md5:	1a570a1f5af11786b39f6aed4304b5c3
 Source1:	%{name}.logrotate
 Patch0:		%{name}-vars.patch
 Patch1:		%{name}-bin.patch
