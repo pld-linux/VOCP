@@ -1,0 +1,9 @@
+/var/log/vocp-calls.log {
+}
+
+/var/log/vocp.log {
+}
+
+/var/log/voicelog {
+}
+
