@@ -11,11 +11,11 @@
 # -translate description,
 # -play with secure stuff, attr for examle, luzik is to lame in sec,
 # -fix BR, for each package
+# -try runing on perl-5.6.1
 
 %include        /usr/lib/rpm/macros.perl
 
 %define         _vocpwebdir     /home/services/httpd/html/vocp
-%define		_smallname	vocp
 
 Summary:	VOCP is a complete messaging solution for voice modems
 Summary(pl):	VOCP jest a complete messaging solution dla voice modems
@@ -28,7 +28,7 @@ Source0:	http://prdownloads.sourceforge.net/vocp/%{name}-%{version}.tar.bz2
 Source1:	%{name}.logrotate
 Patch0:		%{name}-vars.patch
 Patch1:		%{name}-bin.patch
-Patch2:		%{name}-%{_smallname}web.patch
+Patch2:		%{name}-vocpweb.patch
 Patch3:		%{name}-doc.patch
 URL:		http://www.vocpsystem.com
 Requires:	perl-Modem-Vgetty
@@ -63,7 +63,7 @@ Modlu³y perla dla VOCP.
 Summary:	Web GUI for VOCP
 Summary(pl):	Web GUI for VOCP
 Group:		Applications/Communications
-Requires:	%{name}-modules
+Requires:	%{name}-perl-modules
 
 %description vocpweb
 Web GUI for VOCP.
@@ -72,7 +72,7 @@ Web GUI for VOCP.
 Web GUI for VOCP.
 
 %prep
-%setup -q -n %{_smallname}-%{version}
+%setup -q -n vocp-%{version}
 
 %patch0 -p1
 %patch1 -p1
@@ -81,8 +81,8 @@ Web GUI for VOCP.
 
 %build
 cd prog/bin
-gcc -o pwcheck pwcheck.c
-gcc -o xfer_to_vocp xfer_to_vocp.c
+%{__cc} %{rpmcflags} %{rpmldflags} -o pwcheck pwcheck.c
+%{__cc} %{rpmcflags} %{rpmldflags} -o xfer_to_vocp xfer_to_vocp.c
 
 cd ../VOCP
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -95,12 +95,13 @@ install -d $RPM_BUILD_ROOT%{_sysconfdir}/vocp \
         $RPM_BUILD_ROOT%{_var}/spool/voice/{commands,incoming/cache,messages} \
         $RPM_BUILD_ROOT%{_bindir} \
         $RPM_BUILD_ROOT%{_vocpwebdir}/{img,sounds,tpl} \
-        $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d \
+        $RPM_BUILD_ROOT/etc/logrotate.d \
         $RPM_BUILD_ROOT/var/log
 
 %{__make} install -C prog/VOCP \
 	DESTDIR=$RPM_BUILD_ROOT
 
+rm -rf $RPM_BUILD_ROOT%%{perl_vendorlib}/auto
 cp -R images $RPM_BUILD_ROOT%{_datadir}/vocp
 cp -R sounds $RPM_BUILD_ROOT%{_datadir}/vocp
 cp -R messages $RPM_BUILD_ROOT%{_datadir}/vocp
@@ -133,14 +134,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README INSTALL LICENSE CHANGELOG prog/bin/README-bin doc
+%doc README INSTALL CHANGELOG prog/bin/README-bin doc
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/vocp/*
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/%{_smallname}
+%{_datadir}/vocp
 %attr(1777,root,root) %dir /var/spool/voice/incoming/cache
 %attr(755,root,root) /var/spool/voice/commands/*
 %{_var}/spool/voice/messages/*
-%attr(640,root,root) %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
+%attr(640,root,root) %config(noreplace) /etc/logrotate.d/%{name}
 %attr(640,root,root) /var/log/*log
 
 %files perl-modules
