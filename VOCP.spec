@@ -128,7 +128,7 @@ for i in boxes.conf boxes.conf.sample boxes.conf.shadow cid-filter.conf vocp.con
         install prog/$i $RPM_BUILD_ROOT%{_sysconfdir}/vocp
 done
 
-install lib/XVOCP.pm $RPM_BUILD_ROOT%{perl_vendorlib}
+install prog/lib/XVOCP.pm $RPM_BUILD_ROOT%{perl_vendorlib}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
