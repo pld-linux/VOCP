@@ -128,12 +128,14 @@ for i in boxes.conf boxes.conf.sample boxes.conf.shadow cid-filter.conf vocp.con
         install prog/$i $RPM_BUILD_ROOT%{_sysconfdir}/vocp
 done
 
+install lib/XVOCP.pm $RPM_BUILD_ROOT%{perl_vendorlib}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README INSTALL CHANGELOG prog/bin/README-bin doc
+%doc README INSTALL CHANGELOG prog/bin/README-bin doc/*
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/vocp/*
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/vocp
@@ -146,7 +148,9 @@ rm -rf $RPM_BUILD_ROOT
 %files perl-modules
 %defattr(644,root,root,755)
 %{perl_vendorlib}/VOCP.pm
+%{perl_vendorlib}/XVOCP.pm
 %{perl_vendorlib}/VOCP
+%{perl_vendorlib}/auto/VOCP/autosplit.ix
 %{_mandir}/man3/*
 
 %files vocpweb
