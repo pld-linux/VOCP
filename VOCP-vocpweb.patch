@@ -1,0 +1,29 @@
+--- vocp-0.9.3/vocpweb/vocpweb.cgi.fix	Mon Apr  7 17:49:50 2003
++++ vocp-0.9.3/vocpweb/vocpweb.cgi	Mon Apr  7 18:06:12 2003
+@@ -63,7 +63,7 @@
+ 
+ # The location of the pvf tools (like pvftowav and rmdtopvf) - 
+ # These are installed with vgetty.
+-my $Pvftooldir = '/usr/local/bin';
++my $Pvftooldir = '/usr/bin';
+ 
+ # Run_suid says the program should be running suid if true.
+ # This is necessary when the VOCP setup is such that messages
+@@ -83,7 +83,7 @@
+ 
+ # The name of the user the web server is running as (usually 'nobody')
+ # Only important when running set uid.
+-my $Web_serv_user = 'nobody';
++my $Web_serv_user = 'http';
+ 
+ 
+ # $Allow_deletes -- must set equal to '1' for users to be
+@@ -91,7 +91,7 @@
+ # deletions to work, the script must run suid (the $Run_suid variable
+ # above) - which involves many security considerations... 
+ # See the included documentation or the web site for details.
+-my $Allow_deletes = 0;
++my $Allow_deletes = 1;
+ 
+ # Sets language for this cgi -- currently only english ('en') is supported
+ my $Lang = 'en';
