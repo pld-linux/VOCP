@@ -1,0 +1,25 @@
+--- vocp-0.9.3/prog/VOCP/VOCP/Vars.pm.fix	Mon Apr  7 03:43:50 2003
++++ vocp-0.9.3/prog/VOCP/VOCP/Vars.pm	Mon Apr  7 03:47:04 2003
+@@ -54,7 +54,7 @@
+ 	};
+ $VERSION = '0.9.3';
+ ################## USER Modifiable values ###################	
+-$VocpLocalDir = '/usr/local/vocp';
++$VocpLocalDir = '/usr/share/vocp';
+ $BackupTempDir = '/tmp';
+ %DefaultConfigFiles = (
+ 			'genconfig'	=> '/etc/vocp/vocp.conf',
+@@ -85,11 +85,11 @@
+ 		'device'	=> 'DIALUP_LINE',
+ 		'tempdir'	=> '/tmp',
+ 		#'tempdir'	=> (getpwuid($>))[7],
+-		'pvftooldir'	=> '/usr/local/bin',
++		'pvftooldir'	=> '/usr/bin',
+ 		'commanddir'	=> '/var/spool/voice/commands',
+ 		'messagedir'	=> '/var/spool/voice/messages',
+ 		'inboxdir'	=> '/var/spool/voice/incoming',
+-		'vocplocaldir'	=> '/usr/local/vocp',
++		'vocplocaldir'	=> '/usr/share/vocp',
+ 		'voice_device_type'	=> 'vgetty',
+ 		'genconfig'	=> $DefaultConfigFiles{'genconfig'},
+ 		'boxconfig'	=> $DefaultConfigFiles{'boxconfig'},
