@@ -15,6 +15,7 @@
 %include        /usr/lib/rpm/macros.perl
 
 %define         _vocpwebdir     /home/services/httpd/html/vocp
+%define		_smallname	vocp
 
 Summary:	VOCP is a complete messaging solution for voice modems
 Summary(pl):	VOCP jest a complete messaging solution dla voice modems
@@ -27,7 +28,7 @@ Source0:	http://prdownloads.sourceforge.net/vocp/%{name}-%{version}.tar.bz2
 Source1:	%{name}.logrotate
 Patch0:		%{name}-vars.patch
 Patch1:		%{name}-bin.patch
-Patch2:		%{name}-%{name}web.patch
+Patch2:		%{name}-%{_smallname}web.patch
 Patch3:		%{name}-doc.patch
 URL:		http://www.vocpsystem.com
 Requires:	perl-Modem-Vgetty
@@ -71,7 +72,7 @@ Web GUI for VOCP.
 Web GUI for VOCP.
 
 %prep
-%setup -q
+%setup -q -n %{_smallname}-%{version}
 
 %patch0 -p1
 %patch1 -p1
@@ -135,7 +136,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc README INSTALL LICENSE CHANGELOG prog/bin/README-bin doc
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/vocp/*
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/%{name}
+%{_datadir}/%{_smallname}
 %attr(1777,root,root) %dir /var/spool/voice/incoming/cache
 %attr(755,root,root) /var/spool/voice/commands/*
 %{_var}/spool/voice/messages/*
