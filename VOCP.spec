@@ -39,6 +39,8 @@ Requires:       perl-Crypt-CBC
 Requires:       perl-Crypt-Blowfish
 Requires:       perl-MIME-tools
 Requires:       logrotate
+Requires:	lame
+Requires:	vorbis-tools
 BuildRoot:      %{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
