@@ -16,32 +16,32 @@
 
 %define         _vocpwebdir     /home/services/httpd/html/vocp
 
-Summary:        VOCP is a complete messaging solution for voice modems
-Summary(pl):    VOCP jest a complete messaging solution dla voice modems
-Name:           vocp
-Version:        0.9.3
-Release:        0.1
-License:        GPL
-Group:          Applications/Communications
-Source0:        http://prdownloads.sourceforge.net/vocp/VOCP-%{version}.tar.bz2
-Source1:        %{name}.logrotate
-Patch0:         %{name}-vars.patch
-Patch1:         %{name}-bin.patch
-Patch2:         %{name}-%{name}web.patch
-Patch3:         %{name}-doc.patch
-URL:            http://www.vocpsystem.com
-Requires:       perl-Modem-Vgetty
-Requires:       festival
-Requires:       perl-Audio-DSP
-Requires:       perl-XML-Mini
-Requires:       perl-Tk-JPEG
-Requires:       perl-Crypt-CBC
-Requires:       perl-Crypt-Blowfish
-Requires:       perl-MIME-tools
-Requires:       logrotate
+Summary:	VOCP is a complete messaging solution for voice modems
+Summary(pl):	VOCP jest a complete messaging solution dla voice modems
+Name:		vocp
+Version:	0.9.3
+Release:	0.1
+License:	GPL
+Group:		Applications/Communications
+Source0:	http://prdownloads.sourceforge.net/vocp/VOCP-%{version}.tar.bz2
+Source1:	%{name}.logrotate
+Patch0:		%{name}-vars.patch
+Patch1:		%{name}-bin.patch
+Patch2:		%{name}-%{name}web.patch
+Patch3:		%{name}-doc.patch
+URL:		http://www.vocpsystem.com
+Requires:	perl-Modem-Vgetty
+Requires:	festival
+Requires:	perl-Audio-DSP
+Requires:	perl-XML-Mini
+Requires:	perl-Tk-JPEG
+Requires:	perl-Crypt-CBC
+Requires:	perl-Crypt-Blowfish
+Requires:	perl-MIME-tools
+Requires:	logrotate
 Requires:	lame
 Requires:	vorbis-tools
-BuildRoot:      %{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Much more than an answering machine, VOCP transforms your computer
@@ -53,10 +53,10 @@ pe³ni funkcjonalny setem do voice messaging
 system!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 %package perl-modules
-Summary:        Perl modules for VOCP
-Summary(pl):    Modlu³y perla dla VOCP
-Group:          Applications/Communications
-Requires:       perl >= 5.8.0
+Summary:	Perl modules for VOCP
+Summary(pl):	Modlu³y perla dla VOCP
+Group:		Applications/Communications
+Requires:	perl >= 5.8.0
 
 %description perl-modules
 Perl modules for VOCP
@@ -66,10 +66,10 @@ Modlu³y perla dla VOCP
 
 
 %package vocpweb
-Summary:        Web GUI for VOCP
-Summary(pl):    Web GUI for VOCP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-Group:          Applications/Communications
-Requires:       %{name}-modules
+Summary:	Web GUI for VOCP
+Summary(pl):	Web GUI for VOCP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Group:		Applications/Communications
+Requires:	%{name}-modules
 
 %description vocpweb
 Web GUI for VOCP
@@ -160,7 +160,6 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/VOCP/*
 %{perl_vendorlib}/auto/VOCP/autosplit.ix
 %{_mandir}/man3/*
-
 
 %files vocpweb
 %defattr(644,root,root,755)
