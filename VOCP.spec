@@ -142,7 +142,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(1777,root,root) %dir /var/spool/voice/incoming/cache
 %attr(755,root,root) /var/spool/voice/commands/*
 %{_var}/spool/voice/messages/*
-%attr(640,root,root) %config(noreplace) /etc/logrotate.d/%{name}
+%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) /etc/logrotate.d/%{name}
 %attr(640,root,root) /var/log/*log
 
 %files perl-modules
