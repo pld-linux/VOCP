@@ -1,0 +1,33 @@
+--- vocp-0.9.3/prog/bin/boxconf.pl.fix	Mon Apr  7 04:26:43 2003
++++ vocp-0.9.3/prog/bin/boxconf.pl	Mon Apr  7 04:30:01 2003
+@@ -302,7 +302,7 @@
+ 	$Self->{'windowGen'}->helpWindow(
+ 							'modal'	=> 0,
+ 							'title'	=> "Help",
+-							'file' =>"$VocpLocalDir/doc/boxconf.txt",
++							'file' =>"/usr/share/doc/vocp-0.9.3/boxconf.txt",
+ 							'forceuntaint'	=> 1,
+ 							
+ 					);
+--- vocp-0.9.3/prog/bin/vocphax.pl.fix	Mon Apr  7 04:27:07 2003
++++ vocp-0.9.3/prog/bin/vocphax.pl	Mon Apr  7 04:30:37 2003
+@@ -2134,7 +2134,7 @@
+ 	$Self->{'windowGen'}->helpWindow(
+ 							'modal'	=> 0,
+ 							'title'	=> "Help",
+-							'file' =>"$VocpLocalDir/doc/faxes.txt",
++							'file' =>"/usr/share/doc/vocp-0.9.3/faxes.txt",
+ 							'forceuntaint'	=> 1,
+ 							
+ 					);
+--- vocp-0.9.3/prog/bin/xvocp.pl.fix	Mon Apr  7 04:27:59 2003
++++ vocp-0.9.3/prog/bin/xvocp.pl	Mon Apr  7 04:31:10 2003
+@@ -752,7 +752,7 @@
+ 	$Self->{'windowGen'}->helpWindow(
+ 							'modal'	=> 0,
+ 							'title'	=> "Help",
+-							'file' =>"$VocpLocalDir/doc/xvocp.txt",
++							'file' =>"/usr/share/vocp-0.9.3/doc/xvocp.txt",
+ 							'forceuntaint'	=> 1,
+ 							
+ 					);
