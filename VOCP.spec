@@ -135,7 +135,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README INSTALL CHANGELOG prog/bin/README-bin doc/*
+%doc INSTALL CHANGELOG prog/bin/README-bin doc/*
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/vocp/*
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/vocp
