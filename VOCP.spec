@@ -18,19 +18,19 @@
 %define         _vocpwebdir     /home/services/httpd/html/vocp
 
 Summary:	VOCP is a complete messaging solution for voice modems
-Summary(pl):	VOCP jest a complete messaging solution dla voice modems
+Summary(pl):	VOCP to pe³na obs³uga wiadomo¶ci dla modemów g³osowych
 Name:		VOCP
 Version:	0.9.3
 Release:	0.1
 License:	GPL
 Group:		Applications/Communications
-Source0:	http://prdownloads.sourceforge.net/vocp/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/vocp/%{name}-%{version}.tar.bz2
 Source1:	%{name}.logrotate
 Patch0:		%{name}-vars.patch
 Patch1:		%{name}-bin.patch
 Patch2:		%{name}-vocpweb.patch
 Patch3:		%{name}-doc.patch
-URL:		http://www.vocpsystem.com
+URL:		http://www.vocpsystem.com/
 Requires:	perl-Modem-Vgetty
 Requires:	festival
 Requires:	logrotate
@@ -43,12 +43,12 @@ Much more than an answering machine, VOCP transforms your computer
 into a full-featured call answering and voice messaging system.
 
 %description -l pl
-Du¿o wiêcej ni¿ automatyczna sekretarka, VOCP zmieni twój komputer w
-pe³ni funkcjonalny setem do voice messaging system.
+VOCP to du¿o wiêcej ni¿ automatyczna sekretarka - zamienia komputer na
+w pe³ni funkcjonalny system odpowiedzi i komunikatów g³osowych.
 
 %package perl-modules
 Summary:	Perl modules for VOCP
-Summary(pl):	Modlu³y perla dla VOCP
+Summary(pl):	Modu³y Perla dla VOCP
 Group:		Applications/Communications
 Requires:	perl >= 5.8.0
 
@@ -56,12 +56,11 @@ Requires:	perl >= 5.8.0
 Perl modules for VOCP.
 
 %description perl-modules -l pl
-Modlu³y perla dla VOCP.
-
+Modu³y Perla dla VOCP.
 
 %package vocpweb
 Summary:	Web GUI for VOCP
-Summary(pl):	Web GUI for VOCP
+Summary(pl):	Interfejs graficzny WWW dla VOCP
 Group:		Applications/Communications
 Requires:	%{name}-perl-modules
 
@@ -69,11 +68,10 @@ Requires:	%{name}-perl-modules
 Web GUI for VOCP.
 
 %description vocpweb -l pl
-Web GUI for VOCP.
+Interfejs graficzny WWW dla VOCP.
 
 %prep
 %setup -q -n vocp-%{version}
-
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
