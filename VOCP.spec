@@ -18,12 +18,12 @@
 
 Summary:	VOCP is a complete messaging solution for voice modems
 Summary(pl):	VOCP jest a complete messaging solution dla voice modems
-Name:		vocp
+Name:		VOCP
 Version:	0.9.3
 Release:	0.1
 License:	GPL
 Group:		Applications/Communications
-Source0:	http://prdownloads.sourceforge.net/vocp/VOCP-%{version}.tar.bz2
+Source0:	http://prdownloads.sourceforge.net/vocp/%{name}-%{version}.tar.bz2
 Source1:	%{name}.logrotate
 Patch0:		%{name}-vars.patch
 Patch1:		%{name}-bin.patch
@@ -32,12 +32,6 @@ Patch3:		%{name}-doc.patch
 URL:		http://www.vocpsystem.com
 Requires:	perl-Modem-Vgetty
 Requires:	festival
-Requires:	perl-Audio-DSP
-Requires:	perl-XML-Mini
-Requires:	perl-Tk-JPEG
-Requires:	perl-Crypt-CBC
-Requires:	perl-Crypt-Blowfish
-Requires:	perl-MIME-tools
 Requires:	logrotate
 Requires:	lame
 Requires:	vorbis-tools
@@ -49,8 +43,7 @@ into a full-featured call answering and voice messaging system.
 
 %description -l pl
 Du¿o wiêcej ni¿ automatyczna sekretarka, VOCP zmieni twój komputer w
-pe³ni funkcjonalny setem do voice messaging
-system!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+pe³ni funkcjonalny setem do voice messaging system.
 
 %package perl-modules
 Summary:	Perl modules for VOCP
@@ -59,25 +52,23 @@ Group:		Applications/Communications
 Requires:	perl >= 5.8.0
 
 %description perl-modules
-Perl modules for VOCP
+Perl modules for VOCP.
 
 %description perl-modules -l pl
-Modlu³y perla dla VOCP
+Modlu³y perla dla VOCP.
 
 
 %package vocpweb
 Summary:	Web GUI for VOCP
-Summary(pl):	Web GUI for VOCP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Summary(pl):	Web GUI for VOCP
 Group:		Applications/Communications
 Requires:	%{name}-modules
 
 %description vocpweb
-Web GUI for VOCP
+Web GUI for VOCP.
 
 %description vocpweb -l pl
-Web GUI for VOCP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
+Web GUI for VOCP.
 
 %prep
 %setup -q
@@ -98,7 +89,6 @@ cd ../VOCP
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/vocp \
         $RPM_BUILD_ROOT%{_datadir}/vocp/{images,messages,run,sounds,lib} \
         $RPM_BUILD_ROOT%{_var}/spool/voice/{commands,incoming/cache,messages} \
@@ -106,6 +96,9 @@ install -d $RPM_BUILD_ROOT%{_sysconfdir}/vocp \
         $RPM_BUILD_ROOT%{_vocpwebdir}/{img,sounds,tpl} \
         $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d \
         $RPM_BUILD_ROOT/var/log
+
+%{__make} install -C prog/VOCP \
+	DESTDIR=$RPM_BUILD_ROOT
 
 cp -R images $RPM_BUILD_ROOT%{_datadir}/vocp
 cp -R sounds $RPM_BUILD_ROOT%{_datadir}/vocp
@@ -134,20 +127,15 @@ for i in boxes.conf boxes.conf.sample boxes.conf.shadow cid-filter.conf vocp.con
         install prog/$i $RPM_BUILD_ROOT%{_sysconfdir}/vocp
 done
 
-cd prog/VOCP
-%{__make} install \
-        DESTDIR=$RPM_BUILD_ROOT
-cd ../..
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
 %doc README INSTALL LICENSE CHANGELOG prog/bin/README-bin doc
-%attr(644,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/vocp/*
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/vocp/*
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/%{name}/*
+%{_datadir}/%{name}
 %attr(1777,root,root) %dir /var/spool/voice/incoming/cache
 %attr(755,root,root) /var/spool/voice/commands/*
 %{_var}/spool/voice/messages/*
@@ -157,8 +145,7 @@ rm -rf $RPM_BUILD_ROOT
 %files perl-modules
 %defattr(644,root,root,755)
 %{perl_vendorlib}/VOCP.pm
-%{perl_vendorlib}/VOCP/*
-%{perl_vendorlib}/auto/VOCP/autosplit.ix
+%{perl_vendorlib}/VOCP
 %{_mandir}/man3/*
 
 %files vocpweb
