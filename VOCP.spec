@@ -13,9 +13,9 @@
 # -fix BR, for each package
 # -try runing on perl-5.6.1
 
-%include        /usr/lib/rpm/macros.perl
+%include	/usr/lib/rpm/macros.perl
 
-%define         _vocpwebdir     /home/services/httpd/html/vocp
+%define		_vocpwebdir	/home/services/httpd/html/vocp
 
 Summary:	VOCP is a complete messaging solution for voice modems
 Summary(pl):	VOCP to pe³na obs³uga wiadomo¶ci dla modemów g³osowych
@@ -90,12 +90,12 @@ cd ../VOCP
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/vocp \
-        $RPM_BUILD_ROOT%{_datadir}/vocp/{images,messages,run,sounds,lib} \
-        $RPM_BUILD_ROOT%{_var}/spool/voice/{commands,incoming/cache,messages} \
-        $RPM_BUILD_ROOT%{_bindir} \
-        $RPM_BUILD_ROOT%{_vocpwebdir}/{img,sounds,tpl} \
-        $RPM_BUILD_ROOT/etc/logrotate.d \
-        $RPM_BUILD_ROOT/var/log
+	$RPM_BUILD_ROOT%{_datadir}/vocp/{images,messages,run,sounds,lib} \
+	$RPM_BUILD_ROOT%{_var}/spool/voice/{commands,incoming/cache,messages} \
+	$RPM_BUILD_ROOT%{_bindir} \
+	$RPM_BUILD_ROOT%{_vocpwebdir}/{img,sounds,tpl} \
+	$RPM_BUILD_ROOT/etc/logrotate.d \
+	$RPM_BUILD_ROOT/var/log
 
 %{__make} install -C prog/VOCP \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -122,10 +122,10 @@ callcenter.pl convert_fax.sh email2vm.pl pvftoogg \
 pwcheck.pl txttopvf vocplocal.pl xfer_to_vocp \
 cnd-logger.pl cryptpass.pl messages.pl pwcheck \
 view_fax.sh wav2rmd.pl xfer_to_vocp.pl ../vocp.pl; do
-        install prog/bin/$i $RPM_BUILD_ROOT%{_bindir}
+	install prog/bin/$i $RPM_BUILD_ROOT%{_bindir}
 done
 for i in boxes.conf boxes.conf.sample boxes.conf.shadow cid-filter.conf vocp.conf; do
-        install prog/$i $RPM_BUILD_ROOT%{_sysconfdir}/vocp
+	install prog/$i $RPM_BUILD_ROOT%{_sysconfdir}/vocp
 done
 
 install prog/lib/XVOCP.pm $RPM_BUILD_ROOT%{perl_vendorlib}
