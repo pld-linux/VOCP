@@ -1,0 +1,29 @@
+--- vocp-0.9.3/prog/bin/callcenter.pl.fix	Mon Apr  7 03:55:58 2003
++++ vocp-0.9.3/prog/bin/callcenter.pl	Mon Apr  7 03:59:43 2003
+@@ -140,9 +140,9 @@
+ $VocpLocalDir = $VOCP::Vars::Defaults{'vocplocaldir'};
+ 
+ $ImageDir = "$VocpLocalDir/images/callcenter";
+-$XvocpProg = "$VocpLocalDir/bin/xvocp.pl";
+-$VocphaxProg = "$VocpLocalDir/bin/vocphax.pl";
+-$VocpXferProg = "$VocpLocalDir/bin/xfer_to_vocp";
++$XvocpProg = "/usr/bin/xvocp.pl";
++$VocphaxProg = "/usr/bin/vocphax.pl";
++$VocpXferProg = "/usr/bin/xfer_to_vocp";
+ 
+ {
+ 
+--- vocp-0.9.3/prog/bin/txttopvf.fix	Tue Feb  4 00:12:52 2003
++++ vocp-0.9.3/prog/bin/txttopvf	Mon Apr  7 04:08:27 2003
+@@ -84,9 +84,9 @@
+ ### If you've installed the festival speech synthesis engine
+ ### and would like to enable TTS functionality, uncomment (and
+ ### verify) the line below
+-$txt2wavProg = '/path/to/bin/text2wave';
++$txt2wavProg = '/usr/bin/text2wave';
+ 
+-my $wav2pvfProg = "/usr/local/bin/wavtopvf"; # Use full path to 'wavtopvf' executable
++my $wav2pvfProg = "/usr/bin/wavtopvf"; # Use full path to 'wavtopvf' executable
+ 
+ 
+ my $tmpDir = '/tmp';
