@@ -32,10 +32,10 @@ Patch1:		%{name}-bin.patch
 Patch2:		%{name}-vocpweb.patch
 Patch3:		%{name}-doc.patch
 URL:		http://www.vocpsystem.com/
-Requires:	perl-Modem-Vgetty
 Requires:	festival
-Requires:	logrotate
 Requires:	lame
+Requires:	logrotate
+Requires:	perl-Modem-Vgetty
 Requires:	vorbis-tools
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -136,13 +136,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc INSTALL CHANGELOG prog/bin/README-bin doc/*
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/vocp/*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/vocp/*
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/vocp
 %attr(1777,root,root) %dir /var/spool/voice/incoming/cache
 %attr(755,root,root) /var/spool/voice/commands/*
 %{_var}/spool/voice/messages/*
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) /etc/logrotate.d/%{name}
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/logrotate.d/%{name}
 %attr(640,root,root) /var/log/*log
 
 %files perl-modules
