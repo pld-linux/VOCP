@@ -18,7 +18,7 @@
 %define		_vocpwebdir	/home/services/httpd/html/vocp
 
 Summary:	VOCP is a complete messaging solution for voice modems
-Summary(pl.UTF-8):   VOCP to pełna obsługa wiadomości dla modemów głosowych
+Summary(pl.UTF-8):	VOCP to pełna obsługa wiadomości dla modemów głosowych
 Name:		VOCP
 Version:	0.9.3
 Release:	0.1
@@ -49,7 +49,7 @@ w pełni funkcjonalny system odpowiedzi i komunikatów głosowych.
 
 %package perl-modules
 Summary:	Perl modules for VOCP
-Summary(pl.UTF-8):   Moduły Perla dla VOCP
+Summary(pl.UTF-8):	Moduły Perla dla VOCP
 Group:		Applications/Communications
 Requires:	perl >= 5.8.0
 
@@ -61,7 +61,7 @@ Moduły Perla dla VOCP.
 
 %package vocpweb
 Summary:	Web GUI for VOCP
-Summary(pl.UTF-8):   Interfejs graficzny WWW dla VOCP
+Summary(pl.UTF-8):	Interfejs graficzny WWW dla VOCP
 Group:		Applications/Communications
 Requires:	%{name}-perl-modules
 
