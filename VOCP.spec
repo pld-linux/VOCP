@@ -18,7 +18,7 @@
 %define		_vocpwebdir	/home/services/httpd/html/vocp
 
 Summary:	VOCP is a complete messaging solution for voice modems
-Summary(pl):	VOCP to pe≥na obs≥uga wiadomo∂ci dla modemÛw g≥osowych
+Summary(pl.UTF-8):   VOCP to pe≈Çna obs≈Çuga wiadomo≈õci dla modem√≥w g≈Çosowych
 Name:		VOCP
 Version:	0.9.3
 Release:	0.1
@@ -43,32 +43,32 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Much more than an answering machine, VOCP transforms your computer
 into a full-featured call answering and voice messaging system.
 
-%description -l pl
-VOCP to duøo wiÍcej niø automatyczna sekretarka - zamienia komputer na
-w pe≥ni funkcjonalny system odpowiedzi i komunikatÛw g≥osowych.
+%description -l pl.UTF-8
+VOCP to du≈ºo wiƒôcej ni≈º automatyczna sekretarka - zamienia komputer na
+w pe≈Çni funkcjonalny system odpowiedzi i komunikat√≥w g≈Çosowych.
 
 %package perl-modules
 Summary:	Perl modules for VOCP
-Summary(pl):	Modu≥y Perla dla VOCP
+Summary(pl.UTF-8):   Modu≈Çy Perla dla VOCP
 Group:		Applications/Communications
 Requires:	perl >= 5.8.0
 
 %description perl-modules
 Perl modules for VOCP.
 
-%description perl-modules -l pl
-Modu≥y Perla dla VOCP.
+%description perl-modules -l pl.UTF-8
+Modu≈Çy Perla dla VOCP.
 
 %package vocpweb
 Summary:	Web GUI for VOCP
-Summary(pl):	Interfejs graficzny WWW dla VOCP
+Summary(pl.UTF-8):   Interfejs graficzny WWW dla VOCP
 Group:		Applications/Communications
 Requires:	%{name}-perl-modules
 
 %description vocpweb
 Web GUI for VOCP.
 
-%description vocpweb -l pl
+%description vocpweb -l pl.UTF-8
 Interfejs graficzny WWW dla VOCP.
 
 %prep
