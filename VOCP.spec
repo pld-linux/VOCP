@@ -13,7 +13,6 @@
 # -fix BR, for each package
 # -try runing on perl-5.6.1
 
-%include	/usr/lib/rpm/macros.perl
 
 %define		_vocpwebdir	/home/services/httpd/html/vocp
 
